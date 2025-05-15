@@ -11,7 +11,7 @@ function App() {
   }, [])
 
   return (
-    <div className="grid grid-cols-3 gap-3 p-10">
+    <div className="flex flex-wrap justify-center gap-3 p-10">
       {
         data.map(item => {
           return (
