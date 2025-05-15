@@ -1,34 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react"
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    fetch('https://rickandmortyapi.com/api/character')
+      .then(res => res.json())
+      .then(data => setData(data.results))
+      .catch(err => console.log(err))
+  }, [])
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="grid grid-cols-3 gap-3 p-10">
+      {
+        data.map(item => {
+          return (
+            <Card 
+              key={item.id}
+              name={item.name}
+              image={item.image}
+            />
+          )
+        })
+      }
+    </div>
+  )
+}
+
+function Card(props) {
+  return (
+    <section className="flex flex-col items-center">
+      <img src={props.image} alt={props.name} className="rounded"/>
+      <p>{props.name}</p>
+    </section>
   )
 }
 
