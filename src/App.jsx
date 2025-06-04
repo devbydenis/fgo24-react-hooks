@@ -11,6 +11,8 @@ function App() {
   }, [])
 
   return (
+    <>
+    <h1 className="flex justify-center mt-5 text-5xl font-semibold">Rick and Morty</h1>
     <div className="flex flex-wrap justify-center gap-3 p-10">
       {
         data.map(item => {
@@ -24,6 +26,8 @@ function App() {
         })
       }
     </div>
+    </>
+    
   )
 }
 

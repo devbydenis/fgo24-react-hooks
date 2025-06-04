@@ -9,6 +9,10 @@
 
 This project is a basic React application scaffolded with Vite, styled using Tailwind CSS, and powered by a Node.js environment. It is developed as part of the FGO24 (Full-stack Golang 2024) bootcamp to demonstrate hooks usage.
 
+## Preview
+
+![Preview](preview.png)
+
 ## ✨ Features
 
 - Fast development environment with Vite
@@ -58,6 +62,24 @@ yarn dev
 ```
 
 The app will be available at `http://localhost:5173` by default.
+
+
+### Docker Deployment
+
+1. **Build the Docker image**
+   ```bash
+   docker build -t image-react-hooks .
+   ```
+
+2. **Run the container**
+   ```bash
+   docker run -d --name container-react-hooks -p 8080:80 image-react-hooks
+   ```
+
+3. **Access the application**
+   Open your browser and go to `http://localhost:8080`
+   
+   
 
 ## 📱 Responsive Design
 
